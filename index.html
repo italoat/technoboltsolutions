@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technobolt Solutions | O Ecossistema de Inovação</title>
+    <title>Technobolt Solutions | O Futuro da Gestão Inteligente</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -13,186 +13,311 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            dark: '#0f172a',
-                            card: '#1e293b',
-                            primary: '#3b82f6',
-                            accent: '#06b6d4',
-                            text: '#f8fafc',
-                            muted: '#94a3b8'
-                        }
+                        bg: '#030712', // Almost black
+                        surface: '#111827',
+                        primary: '#06b6d4', // Cyan
+                        gym: '#10b981', // Emerald
+                        gov: '#8b5cf6', // Violet
+                        legal: '#f59e0b', // Amber
                     },
-                    boxShadow: {
-                        'neon': '0 0 20px rgba(59, 130, 246, 0.5)',
-                        'glow': '0 0 15px rgba(6, 182, 212, 0.3)'
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #0b0f19;
-            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 70%);
-            color: #f8fafc;
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
+        body { background-color: #030712; color: #f9fafb; overflow-x: hidden; }
+        
+        /* Efeito de Vidro Premium */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.1);
+
+        /* Grid Tecnológico no Fundo */
+        .tech-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
         }
-        .btn-gradient {
-            background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-gradient:hover {
-            opacity: 0.9;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+
+        /* Glow Effects */
+        .glow-text { text-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
+        
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-cyan-500 selection:text-white">
+<body class="antialiased">
 
-    <header class="relative overflow-hidden pt-20 pb-16 text-center lg:pt-32 lg:pb-24">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-cyan-400 text-xs font-semibold uppercase tracking-wide mb-6">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                Inovação através da IA
+    <div class="fixed inset-0 tech-grid -z-10 pointer-events-none"></div>
+
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-bg/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-display font-bold tracking-tighter">
+                Technobolt<span class="text-primary">.</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
-                Technobolt <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Solutions</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Transformamos setores complexos em operações de alta performance. 
-                Do jurídico ao fitness, da governança corporativa ao automotivo. 
-                <span class="text-white font-medium">O futuro é agora.</span>
-            </p>
-            
-            <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20%C3%8Dtalo!%20Acessei%20o%20site%20da%20Technobolt%20Solutions%20e%20gostaria%20de%20entender%20como%20as%20solu%C3%A7%C3%B5es%20podem%20ajudar%20meu%20neg%C3%B3cio." 
-               target="_blank"
-               class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-slate-900">
-                <i class="fab fa-whatsapp mr-2 text-xl"></i> Falar com um Especialista
+            <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20consultor%20Technobolt." 
+               class="hidden md:flex bg-white/10 hover:bg-white/20 border border-white/10 px-6 py-2 rounded-full text-sm font-semibold transition-all items-center gap-2">
+                <i class="fab fa-whatsapp"></i> Fale Conosco
             </a>
         </div>
-        
-        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10 pointer-events-none opacity-20">
-            <div class="absolute top-[20%] left-[20%] w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px]"></div>
-            <div class="absolute top-[20%] right-[20%] w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-[128px]"></div>
-        </div>
-    </header>
+    </nav>
 
-    <section class="py-16 md:py-24 relative">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nosso Ecossistema</h2>
-                <div class="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-gov/20 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+        <div class="container mx-auto px-6 text-center z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8 animate-float">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Ecossistema de Alta Performance
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
-
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group">
-                    <div class="h-12 w-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
-                        <i class="fas fa-car text-blue-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Auto Peças</h3>
-                    <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        Gestão inteligente de estoque e vendas. Otimize compras com IA e identifique peças visualmente.
-                    </p>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-300">
-                        <li class="flex items-start"><i class="fas fa-check text-cyan-500 mt-1 mr-2"></i> Vision IA para Peças</li>
-                        <li class="flex items-start"><i class="fas fa-check text-cyan-500 mt-1 mr-2"></i> Compras Preditivas</li>
-                        <li class="flex items-start"><i class="fas fa-check text-cyan-500 mt-1 mr-2"></i> Revisor Fiscal Automático</li>
-                    </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1!%20Tenho%20interesse%20no%20*Technobolt%20Auto%20Pe%C3%A7as*.%20Gostaria%20de%20ver%20uma%20demonstra%C3%A7%C3%A3o%20da%20Vision%20IA." 
-                       target="_blank"
-                       class="w-full py-3 rounded-lg border border-slate-600 hover:border-blue-500 hover:bg-blue-500/10 hover:text-blue-400 font-medium transition-all text-center">
-                        Conhecer Solução
-                    </a>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group">
-                    <div class="h-12 w-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 transition-colors">
-                        <i class="fas fa-dumbbell text-emerald-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Gym</h3>
-                    <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        Alta performance e hiper-personalização. Protocolos de treino e dieta gerados por biometria e IA.
-                    </p>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-300">
-                        <li class="flex items-start"><i class="fas fa-check text-emerald-500 mt-1 mr-2"></i> Análise Biométrica IA</li>
-                        <li class="flex items-start"><i class="fas fa-check text-emerald-500 mt-1 mr-2"></i> Dietas Dinâmicas</li>
-                        <li class="flex items-start"><i class="fas fa-check text-emerald-500 mt-1 mr-2"></i> Comunidade Elite</li>
-                    </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20*Technobolt%20Gym*.%20Tenho%20interesse%20em%20alta%20performance%20e%20personaliza%C3%A7%C3%A3o." 
-                       target="_blank"
-                       class="w-full py-3 rounded-lg border border-slate-600 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400 font-medium transition-all text-center">
-                        Conhecer Solução
-                    </a>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group">
-                    <div class="h-12 w-12 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-6 border border-indigo-500/20 group-hover:border-indigo-500/50 transition-colors">
-                        <i class="fas fa-chess text-indigo-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">Governance</h3>
-                    <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        O cérebro da operação. Centro de comando de dados para decisões estratégicas e simulação de cenários.
-                    </p>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-300">
-                        <li class="flex items-start"><i class="fas fa-check text-indigo-500 mt-1 mr-2"></i> Simulador de Decisões</li>
-                        <li class="flex items-start"><i class="fas fa-check text-indigo-500 mt-1 mr-2"></i> Conselheiro Executivo IA</li>
-                        <li class="flex items-start"><i class="fas fa-check text-indigo-500 mt-1 mr-2"></i> Projeção de MRR</li>
-                    </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1!%20Gostaria%20de%20uma%20demonstra%C3%A7%C3%A3o%20do%20*Technobolt%20Governance*.%20Preciso%20de%20intelig%C3%AAncia%20de%20dados%20para%20minha%20empresa." 
-                       target="_blank"
-                       class="w-full py-3 rounded-lg border border-slate-600 hover:border-indigo-500 hover:bg-indigo-500/10 hover:text-indigo-400 font-medium transition-all text-center">
-                        Conhecer Solução
-                    </a>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group">
-                    <div class="h-12 w-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-6 border border-amber-500/20 group-hover:border-amber-500/50 transition-colors">
-                        <i class="fas fa-balance-scale text-amber-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-amber-400 transition-colors">Legal</h3>
-                    <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        Jurídico data-driven. Aumente seu Win Rate com análise preditiva de jurisprudência e automação.
-                    </p>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-300">
-                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> Win Rate Consolidado</li>
-                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> Auditor de Prazos</li>
-                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> Análise de Contratos</li>
-                    </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1!%20Tenho%20interesse%20no%20*Technobolt%20Legal*.%20Gostaria%20de%20entender%20como%20aumentar%20a%20efici%C3%AAncia%20do%20meu%20jur%C3%ADdico." 
-                       target="_blank"
-                       class="w-full py-3 rounded-lg border border-slate-600 hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-400 font-medium transition-all text-center">
-                        Conhecer Solução
-                    </a>
-                </div>
-
+            <h1 class="text-5xl md:text-8xl font-display font-bold mb-8 leading-tight">
+                Inteligência que <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-gov glow-text">Redefine Mercados</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                Não vendemos software. Entregamos <strong class="text-white">controle absoluto</strong>. 
+                Do chão de fábrica ao conselho administrativo, nossas IAs trabalham para que você lidere.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#solucoes" class="group relative px-8 py-4 bg-primary text-bg font-bold rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(6,182,212,0.6)]">
+                    <div class="absolute inset-0 w-full h-full bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    <span class="relative flex items-center gap-3">
+                        Explorar Soluções <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-slate-800 bg-slate-900/50 py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold mb-6">Pronto para escalar sua operação?</h2>
-            <p class="text-slate-400 mb-8">Fale diretamente com nossa equipe e descubra o poder da Technobolt.</p>
-            <a href="https://wa.me/5561983759512?text=Ol%C3%A1!%20Quero%20agendar%20uma%20reuni%C3%A3o%20geral%20sobre%20a%20Technobolt%20Solutions." 
-               target="_blank"
-               class="btn-gradient inline-block px-8 py-3 rounded-full font-bold text-white shadow-lg shadow-cyan-500/20">
-                <i class="fab fa-whatsapp mr-2"></i> Contato Geral
+    <section id="solucoes" class="py-24 border-t border-white/5 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="text-primary font-bold tracking-widest mb-2">VAREJO AUTOMOTIVO 4.0</div>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-primary">Auto Peças</span></h2>
+                    <p class="text-slate-400 text-lg mb-8">
+                        Zere as rupturas de estoque e blinde sua operação fiscal. Um sistema que "olha" para a peça e sabe o que ela é.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-eye text-primary"></i> <span><strong>Vision IA:</strong> Identificação visual de peças</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-robot text-primary"></i> <span><strong>Consultor Técnico IA:</strong> Tira-dúvidas 24/7</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-calculator text-primary"></i> <span><strong>Revisor Fiscal:</strong> Correção auto de NCM/CST</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-truck-loading text-primary"></i> <span><strong>Compras Inteligentes:</strong> Sugestão por giro</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fab fa-whatsapp text-primary"></i> <span><strong>CRM Automático:</strong> Mensagens prontas</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-network-wired text-primary"></i> <span><strong>Hub Logístico:</strong> Transferência entre lojas</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20tenho%20uma%20autope%C3%A7as%20e%20fiquei%20impressionado%20com%20a%20Vision%20IA%20e%20o%20Revisor%20Fiscal.%20Quero%20uma%20demo." target="_blank" class="inline-flex items-center gap-3 text-primary border-b border-primary pb-1 hover:text-white hover:border-white transition-colors text-lg font-semibold">
+                        Agendar Demonstração <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-primary/30">
+                        <i class="fas fa-car-battery text-6xl text-primary mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-2">O Fim do "Peça Errada"</h3>
+                        <p class="text-sm text-slate-400">
+                            Nosso sistema não apenas cadastra, ele entende a aplicação do veículo. Com o Hub de Transferência e Auditoria de Estoque, você nunca mais perde uma venda por falha interna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-white/5 bg-surface/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row-reverse gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="text-gym font-bold tracking-widest mb-2">SAÚDE & PERFORMANCE</div>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-gym">Gym</span></h2>
+                    <p class="text-slate-400 text-lg mb-8">
+                        Hiper-personalização em escala. A IA analisa a biometria e prescreve o protocolo exato para resultados estéticos e de força.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-dna text-gym"></i> <span><strong>Análise Corporal IA:</strong> Scan completo</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-apple-alt text-gym"></i> <span><strong>Dieta Cíclica:</strong> Dias High/Low Carbo</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-dumbbell text-gym"></i> <span><strong>Treino Segmentado:</strong> Foco em pontos fracos</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-prescription-bottle text-gym"></i> <span><strong>Gestão de Suplementos:</strong> Dose e horário</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-users text-gym"></i> <span><strong>Comunidade Elite:</strong> Gamificação social</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-ruler-combined text-gym"></i> <span><strong>Avaliação Física:</strong> Dobras e medidas</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20sistema%20Technobolt%20Gym%20para%20gest%C3%A3o%20de%20alunos%20e%20performance." target="_blank" class="inline-flex items-center gap-3 text-gym border-b border-gym pb-1 hover:text-white hover:border-white transition-colors text-lg font-semibold">
+                        Conhecer a Plataforma <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-gym/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-gym/30">
+                        <i class="fas fa-heartbeat text-6xl text-gym mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-2">Bio-Individualidade Real</h3>
+                        <p class="text-sm text-slate-400">
+                            Não é apenas uma ficha de treino. O sistema identifica "gordura subcutânea infra-abdominal" e ajusta o treino de dorsais para criar ilusão de ótica na cintura. Isso é engenharia corporal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-white/5 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="text-gov font-bold tracking-widest mb-2">INTELIGÊNCIA CORPORATIVA</div>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-gov">Governance</span></h2>
+                    <p class="text-slate-400 text-lg mb-8">
+                        O "cérebro" da sua holding. Centralize dados de múltiplos CNPJs, simule cenários de crise e receba conselhos estratégicos de uma IA treinada em gestão.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-chess-king text-gov"></i> <span><strong>Conselheiro Executivo IA:</strong> Mentoria 24h</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-chart-line text-gov"></i> <span><strong>Simulador de Decisões:</strong> Preveja o impacto</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-database text-gov"></i> <span><strong>Centro de Comando:</strong> Dados unificados</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-money-bill-wave text-gov"></i> <span><strong>Projeção de MRR:</strong> Futuro financeiro</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-file-contract text-gov"></i> <span><strong>Análise de Documentos:</strong> Leitura em massa</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-bullseye text-gov"></i> <span><strong>Briefing Estratégico:</strong> Relatórios auto</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20sou%20executivo%20e%20preciso%20centralizar%20a%20intelig%C3%AAncia%20da%20minha%20empresa%20com%20o%20Technobolt%20Governance." target="_blank" class="inline-flex items-center gap-3 text-gov border-b border-gov pb-1 hover:text-white hover:border-white transition-colors text-lg font-semibold">
+                        Solicitar Acesso Enterprise <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-gov/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-gov/30">
+                        <i class="fas fa-brain text-6xl text-gov mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-2">Decisões Baseadas em Dados</h3>
+                        <p class="text-sm text-slate-400">
+                            Saia do "eu acho". Acompanhe métricas de P&D versus Potencial de Mercado e engajamento real. Simule o crescimento do seu MRR para os próximos 6 meses com precisão algorítmica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-white/5 bg-surface/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row-reverse gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="text-legal font-bold tracking-widest mb-2">LAWTECH REVOLUTION</div>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-legal">Legal</span></h2>
+                    <p class="text-slate-400 text-lg mb-8">
+                        Aumente seu Win Rate. Nossa IA analisa jurisprudência e audita prazos para garantir que seu escritório opere com precisão cirúrgica.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-gavel text-legal"></i> <span><strong>Win Rate 84%:</strong> Performance comprovada</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-hourglass-half text-legal"></i> <span><strong>Auditor de Prazos:</strong> Zero perdas</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-search text-legal"></i> <span><strong>Analisador de Petições:</strong> Revisão IA</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-balance-scale text-legal"></i> <span><strong>Jurisprudência:</strong> Busca semântica</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-file-signature text-legal"></i> <span><strong>Revisor de Contratos:</strong> Risco zero</span>
+                        </div>
+                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                            <i class="fas fa-chart-pie text-legal"></i> <span><strong>Legal Analytics:</strong> Dashboards</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Technobolt%20Legal%20e%20aumentar%20a%20efici%C3%AAncia%20do%20meu%20jur%C3%ADdico." target="_blank" class="inline-flex items-center gap-3 text-legal border-b border-legal pb-1 hover:text-white hover:border-white transition-colors text-lg font-semibold">
+                        Modernizar meu Jurídico <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-legal/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-legal/30">
+                        <i class="fas fa-university text-6xl text-legal mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-2">Performance Auditável</h3>
+                        <p class="text-sm text-slate-400">
+                            Com um dashboard que exibe em tempo real o "Failover Status" e a taxa de sucesso consolidada, você transforma o departamento jurídico de um centro de custos em um centro de inteligência.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/10 text-center relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl font-bold mb-6">Pronto para o Próximo Nível?</h2>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+                A Technobolt Solutions não cria apenas software. Criamos vantagens competitivas injustas para o seu negócio.
+            </p>
+            <a href="https://wa.me/5561983759512?text=Ol%C3%A1%20%C3%8Dtalo%2C%20vi%20todas%20as%20solu%C3%A7%C3%B5es%20da%20Technobolt%20e%20quero%20entender%20como%20implementar%20na%20minha%20empresa." class="bg-white text-bg px-10 py-4 rounded-full font-bold hover:bg-slate-200 transition-transform hover:scale-105 inline-block shadow-lg">
+                Falar com a Diretoria
             </a>
-            <div class="mt-12 text-sm text-slate-600">
-                &copy; 2026 Technobolt Solutions. Todos os direitos reservados.
+            <div class="mt-12 text-slate-600 text-sm">
+                &copy; 2026 Technobolt Solutions. All rights reserved. <br>
+                Brasília - DF
             </div>
         </div>
     </footer>
