@@ -17,8 +17,8 @@
                     },
                     colors: {
                         bg: '#030712', // Almost black
-                        surface: '#111827',
-                        primary: '#06b6d4', // Cyan
+                        surface: '#0f172a', // Slightly lighter blue-black for contrast
+                        primary: '#5170ff', // NOVO AZUL TECHNOBOLT
                         gym: '#10b981', // Emerald
                         gov: '#8b5cf6', // Violet
                         legal: '#f59e0b', // Amber
@@ -26,11 +26,16 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 10px -5px #5170ff' },
+                            'to': { boxShadow: '0 0 25px 5px rgba(81, 112, 255, 0.5)' },
                         }
                     }
                 }
@@ -40,43 +45,44 @@
     <style>
         body { background-color: #030712; color: #f9fafb; overflow-x: hidden; }
         
-        /* Efeito de Vidro Premium */
+        /* Efeito de Vidro Premium com leve toque azulado */
         .glass-panel {
-            background: rgba(17, 24, 39, 0.7);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(81, 112, 255, 0.1); /* Borda sutil com a nova cor */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         .glass-card-price {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(81, 112, 255, 0.03); /* Fundo levemente azulado */
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(81, 112, 255, 0.1);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
         }
         
         .glass-card-price:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(81, 112, 255, 0.08);
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.1);
+            border-color: #5170ff;
+            box-shadow: 0 10px 40px -10px rgba(81, 112, 255, 0.3);
         }
 
         /* Grid Tecnológico no Fundo */
         .tech-grid {
             background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(81, 112, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(81, 112, 255, 0.05) 1px, transparent 1px);
             mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 80%);
         }
 
         /* Glow Effects */
-        .glow-text { text-shadow: 0 0 30px rgba(6, 182, 212, 0.6); }
+        .glow-text { text-shadow: 0 0 35px rgba(81, 112, 255, 0.8); }
         
         .feature-item:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(81, 112, 255, 0.1);
+            border-color: #5170ff;
             transform: translateX(5px);
         }
 
@@ -93,44 +99,50 @@
             margin-top: 0.2rem;
             flex-shrink: 0;
         }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #5170ff; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b5bdb; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-primary selection:text-white">
 
     <div class="fixed inset-0 tech-grid -z-10 pointer-events-none"></div>
 
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-bg/80 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-bg/80 backdrop-blur-md border-b border-primary/20">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="Technobolt_logo_black.png" alt="Technobolt Solutions" class="h-10 w-auto object-contain">
+                <img src="logo.png" alt="Technobolt Solutions" class="h-10 w-auto object-contain">
             </div>
             <a href="https://wa.me/5561983759512?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20consultor%20Technobolt." 
-               class="hidden md:flex bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-2 rounded-full text-sm font-semibold transition-all items-center gap-2 hover:border-primary/50 hover:text-primary">
+               class="hidden md:flex bg-primary/10 hover:bg-primary/20 border border-primary/30 px-6 py-2 rounded-full text-sm font-semibold transition-all items-center gap-2 text-primary hover:shadow-[0_0_15px_rgba(81,112,255,0.4)]">
                 <i class="fab fa-whatsapp"></i> Fale com o Board
             </a>
         </div>
     </nav>
 
     <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-gov/20 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute top-20 left-10 w-96 h-96 bg-primary/30 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
 
         <div class="container mx-auto px-6 text-center z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8 animate-float">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/40 text-primary text-xs font-bold uppercase tracking-widest mb-8 animate-float shadow-[0_0_20px_rgba(81,112,255,0.2)]">
                 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 Tecnologia Proprietária & Patenteada
             </div>
             <h1 class="text-5xl md:text-8xl font-display font-bold mb-8 leading-tight">
                 Inteligência que <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-gov glow-text">Gera Domínio</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary glow-text">Gera Domínio</span>
             </h1>
             <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                Não somos apenas software. Somos a <strong>vantagem injusta</strong> do seu negócio.
+                Não somos apenas software. Somos a <strong class="text-primary">vantagem injusta</strong> do seu negócio.
                 Algoritmos preditivos, visão computacional e inteligência de dados orquestrados para uma única função: 
-                <span class="text-white font-medium">Colocar você no controle.</span>
+                <span class="text-white font-medium border-b-2 border-primary">Colocar você no controle.</span>
             </p>
             <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="#dna" class="group relative px-8 py-4 bg-primary text-bg font-bold rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(6,182,212,0.6)]">
+                <a href="#dna" class="group relative px-8 py-4 bg-primary text-white font-bold rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_-5px_rgba(81,112,255,0.7)]">
                     <div class="absolute inset-0 w-full h-full bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                     <span class="relative flex items-center gap-3">
                         Nossa Tecnologia <i class="fas fa-microchip group-hover:rotate-12 transition-transform"></i>
@@ -140,17 +152,17 @@
         </div>
     </section>
 
-    <section id="dna" class="py-24 border-t border-white/5 relative bg-gradient-to-b from-surface/50 to-bg">
+    <section id="dna" class="py-24 border-t border-primary/10 relative bg-gradient-to-b from-surface to-bg">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">DNA <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">Technobolt</span></h2>
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">DNA <span class="text-primary glow-text">Technobolt</span></h2>
                 <p class="text-slate-400 max-w-2xl mx-auto text-lg">
                     Construímos soluções onde a margem de erro é zero. Nascemos da necessidade de transformar dados brutos em decisões executivas de alta precisão.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
-                <div class="glass-panel p-6 rounded-xl border-l-4 border-primary">
+                <div class="glass-panel p-6 rounded-xl border-l-4 border-primary shadow-[0_0_20px_-5px_rgba(81,112,255,0.2)]">
                     <div class="text-3xl font-bold text-white mb-1">99.9%</div>
                     <div class="text-sm text-slate-400 uppercase tracking-wider">Uptime Garantido</div>
                 </div>
@@ -169,12 +181,12 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/5 transition-colors relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-fingerprint text-8xl"></i>
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-primary/5 transition-colors relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-fingerprint text-9xl text-primary"></i>
                     </div>
-                    <div class="w-14 h-14 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20">
-                        <i class="fas fa-code-branch text-2xl text-blue-400"></i>
+                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(81,112,255,0.3)] transition-all">
+                        <i class="fas fa-code-branch text-2xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Engenharia Proprietária</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
@@ -182,11 +194,11 @@
                     </p>
                 </div>
 
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/5 transition-colors relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-shield-virus text-8xl"></i>
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-primary/5 transition-colors relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-shield-virus text-9xl text-primary"></i>
                     </div>
-                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(81,112,255,0.3)] transition-all">
                         <i class="fas fa-lock text-2xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Segurança & Compliance</h3>
@@ -195,12 +207,12 @@
                     </p>
                 </div>
 
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/5 transition-colors relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fas fa-chart-area text-8xl"></i>
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-primary/5 transition-colors relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-chart-area text-9xl text-primary"></i>
                     </div>
-                    <div class="w-14 h-14 rounded-lg bg-purple-500/10 flex items-center justify-center mb-6 border border-purple-500/20">
-                        <i class="fas fa-rocket text-2xl text-purple-400"></i>
+                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(81,112,255,0.3)] transition-all">
+                        <i class="fas fa-rocket text-2xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Obsessão por Performance</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
@@ -211,43 +223,43 @@
         </div>
     </section>
 
-    <section id="autopecas" class="py-24 border-t border-white/5 relative">
+    <section id="autopecas" class="py-24 border-t border-primary/20 relative">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-center mb-16">
                 <div class="lg:w-1/2">
                     <div class="text-primary font-bold tracking-widest mb-2 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-primary rounded-full"></span> VAREJO AUTOMOTIVO 4.0
+                        <span class="w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#5170ff]"></span> VAREJO AUTOMOTIVO 4.0
                     </div>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-primary">Auto Peças</span></h2>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-primary glow-text">Auto Peças</span></h2>
                     <p class="text-slate-400 text-lg mb-8">
                         A única plataforma do mercado com <strong>Vision IA</strong>. Aponte a câmera para a peça e deixe o sistema identificar, precificar e auditar.
                     </p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-primary/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-eye text-primary"></i> <span><strong>Vision IA:</strong> Identificação visual</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-primary/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-robot text-primary"></i> <span><strong>Consultor Técnico:</strong> Tira-dúvidas 24/7</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-primary/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-calculator text-primary"></i> <span><strong>Revisor Fiscal:</strong> Correção automática</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-primary/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-network-wired text-primary"></i> <span><strong>Hub Logístico:</strong> Multi-lojas</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-primary/10 flex items-center gap-3 transition-all">
                             <i class="fab fa-whatsapp text-primary"></i> <span><strong>CRM Automático:</strong> Mensagens IA</span>
                         </div>
-                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                         <div class="feature-item p-3 rounded border border-primary/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-boxes text-primary"></i> <span><strong>Auditor de Estoque:</strong> Balanço rápido</span>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-primary/30 transform group-hover:scale-[1.02] transition-transform duration-500">
-                        <i class="fas fa-cogs text-6xl text-primary mb-6"></i>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-primary/30 transform group-hover:scale-[1.02] transition-transform duration-500 hover:shadow-[0_0_30px_rgba(81,112,255,0.2)]">
+                        <i class="fas fa-cogs text-6xl text-primary mb-6 drop-shadow-[0_0_15px_rgba(81,112,255,0.6)]"></i>
                         <h3 class="text-2xl font-bold mb-2">Eficiência Operacional Extrema</h3>
                         <p class="text-sm text-slate-400">
                             Elimine o erro humano no cadastro e na venda. Nosso "Revisor Fiscal" blinda sua operação contra multas, enquanto a IA sugere compras baseadas no giro real de estoque.
@@ -257,36 +269,36 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-primary/20 relative overflow-hidden flex flex-col hover:border-primary/50">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Start</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-6 font-semibold">Pequenas Autopeças</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-slate-600"></i> PDV & Orçamento Rápido</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Cadastro de Produtos (Manual)</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Controle de Estoque Básico</li>
-                        <li><i class="fas fa-check text-slate-600"></i> 2 Usuários</li>
+                        <li><i class="fas fa-check text-slate-500"></i> PDV & Orçamento Rápido</li>
+                        <li><i class="fas fa-check text-slate-500"></i> Cadastro de Produtos (Manual)</li>
+                        <li><i class="fas fa-check text-slate-500"></i> Controle de Estoque Básico</li>
+                        <li><i class="fas fa-check text-slate-500"></i> 2 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Start*%20do%20*Technobolt%20Auto%20Pe%C3%A7as*." class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Start*%20do%20*Technobolt%20Auto%20Pe%C3%A7as*." class="mt-auto block w-full py-3 border border-primary/30 rounded-lg text-center text-sm font-semibold hover:bg-primary hover:text-white transition shadow-[0_0_15px_rgba(81,112,255,0.1)] hover:shadow-[0_0_20px_rgba(81,112,255,0.4)]">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border border-primary/30 bg-primary/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(6,182,212,0.3)]">
-                    <div class="absolute top-0 inset-x-0 h-1 bg-primary"></div>
-                    <div class="absolute top-4 right-4 text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded uppercase">Recomendado</div>
+                <div class="glass-card-price p-8 rounded-2xl border border-primary bg-primary/10 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_40px_-10px_rgba(81,112,255,0.5)]">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-primary shadow-[0_0_10px_#5170ff]"></div>
+                    <div class="absolute top-4 right-4 text-xs font-bold text-white bg-primary px-3 py-1 rounded-full uppercase shadow-lg">Recomendado</div>
                     <h4 class="text-lg font-bold text-primary mb-2">Turbo AI</h4>
-                    <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
-                    <p class="text-xs text-slate-400 mb-6 font-semibold">Lojas em Crescimento</p>
+                    <div class="text-3xl font-display font-bold mb-2 text-white">Sob Consulta</div>
+                    <p class="text-xs text-slate-300 mb-6 font-semibold">Lojas em Crescimento</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-primary"></i> <strong>Vision IA (Identificação Visual)</strong></li>
+                        <li><i class="fas fa-check text-primary drop-shadow-[0_0_5px_rgba(81,112,255,0.8)]"></i> <strong class="text-white">Vision IA (Identificação Visual)</strong></li>
                         <li><i class="fas fa-check text-primary"></i> Revisor Fiscal Automático</li>
                         <li><i class="fas fa-check text-primary"></i> Carga em Massa (CSV)</li>
                         <li><i class="fas fa-check text-primary"></i> CRM Automático (WhatsApp)</li>
                         <li><i class="fas fa-check text-primary"></i> 5 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Turbo%20AI*%20do%20*Technobolt%20Auto%20Pe%C3%A7as*." class="mt-auto block w-full py-3 bg-primary text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Turbo%20AI*%20do%20*Technobolt%20Auto%20Pe%C3%A7as*." class="mt-auto block w-full py-3 bg-primary text-white font-bold rounded-lg text-center text-sm hover:brightness-110 transition shadow-[0_0_20px_rgba(81,112,255,0.5)]">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-primary/20 relative overflow-hidden flex flex-col hover:border-primary/50">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Rede & Hub</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-6 font-semibold">Redes e Distribuidoras</p>
@@ -297,45 +309,45 @@
                         <li><i class="fas fa-check text-white"></i> Compras Inteligentes (Preditivo)</li>
                         <li><i class="fas fa-check text-white"></i> Até 20 usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Rede%20%26%20Hub*%20do%20*Technobolt%20Auto%20Pe%C3%A7as*." class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Rede%20%26%20Hub*%20do%20*Technobolt%20Auto%20Pe%C3%A7as*." class="mt-auto block w-full py-3 border border-primary/30 rounded-lg text-center text-sm font-semibold hover:bg-primary hover:text-white transition shadow-[0_0_15px_rgba(81,112,255,0.1)] hover:shadow-[0_0_20px_rgba(81,112,255,0.4)]">Consultar Valor</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gym" class="py-24 border-t border-white/5 bg-surface/30 relative">
+    <section id="gym" class="py-24 border-t border-primary/10 bg-surface relative">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row-reverse gap-16 items-center mb-16">
                 <div class="lg:w-1/2">
                     <div class="text-gym font-bold tracking-widest mb-2 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-gym rounded-full"></span> SAÚDE & PERFORMANCE
+                        <span class="w-2 h-2 bg-gym rounded-full shadow-[0_0_10px_#10b981]"></span> SAÚDE & PERFORMANCE
                     </div>
                     <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-gym">Gym</span></h2>
                     <p class="text-slate-400 text-lg mb-8">
                         A ciência da <strong>hiper-personalização</strong>. Algoritmos que analisam biometria para criar protocolos de treino e dieta impossíveis de serem replicados manualmente.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gym/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-dna text-gym"></i> <span><strong>Análise Corporal IA:</strong> Scan completo</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gym/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-apple-alt text-gym"></i> <span><strong>Dieta Cíclica:</strong> High/Low Carbo</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gym/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-dumbbell text-gym"></i> <span><strong>Treino Segmentado:</strong> Foco total</span>
                         </div>
-                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                         <div class="feature-item p-3 rounded border border-gym/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-prescription-bottle text-gym"></i> <span><strong>Suplementação:</strong> Gestão</span>
                         </div>
-                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                         <div class="feature-item p-3 rounded border border-gym/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-users text-gym"></i> <span><strong>Comunidade:</strong> Techno Gymers</span>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-gym/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-gym/30 transform group-hover:scale-[1.02] transition-transform duration-500">
-                        <i class="fas fa-heartbeat text-6xl text-gym mb-6"></i>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-gym/30 transform group-hover:scale-[1.02] transition-transform duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                        <i class="fas fa-heartbeat text-6xl text-gym mb-6 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]"></i>
                         <h3 class="text-2xl font-bold mb-2">Engenharia Corporal</h3>
                         <p class="text-sm text-slate-400">
                             O sistema identifica nuances como "gordura subcutânea infra-abdominal" e ajusta o treino automaticamente para criar ilusões de ótica estéticas (ex: afinamento de cintura via dorsais).
@@ -346,7 +358,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 
-                <div class="glass-card-price p-6 rounded-xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-6 rounded-xl border-t border-gym/20 relative overflow-hidden flex flex-col hover:border-gym/50">
                     <h4 class="text-base font-bold text-slate-300 mb-1">Individual Basic</h4>
                     <div class="text-2xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-4">Licença Aluno (1 análise/mês)</p>
@@ -356,10 +368,10 @@
                         <li><i class="fas fa-check text-slate-600"></i> Dieta & Suplementação</li>
                         <li><i class="fas fa-check text-slate-600"></i> Comunidade</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Individual%20Basic*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 border border-white/10 rounded text-center text-xs font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Individual%20Basic*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 border border-gym/30 rounded text-center text-xs font-semibold hover:bg-gym/10 hover:text-gym transition">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-6 rounded-xl border border-gym/30 bg-gym/5 relative flex flex-col">
+                <div class="glass-card-price p-6 rounded-xl border border-gym/30 bg-gym/5 relative flex flex-col shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]">
                     <h4 class="text-base font-bold text-gym mb-1">Individual Premium</h4>
                     <div class="text-2xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-4">Licença Aluno (4 análises/mês)</p>
@@ -369,10 +381,10 @@
                         <li><i class="fas fa-check text-gym"></i> Dieta & Suplementação</li>
                         <li><i class="fas fa-check text-gym"></i> Comunidade</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Individual%20Premium*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 bg-gym text-bg rounded text-center text-xs font-bold hover:brightness-110 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Individual%20Premium*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 bg-gym/20 border border-gym text-white rounded text-center text-xs font-bold hover:bg-gym hover:brightness-110 transition">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-6 rounded-xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-6 rounded-xl border-t border-gym/20 relative overflow-hidden flex flex-col hover:border-gym/50">
                     <h4 class="text-base font-bold text-slate-300 mb-1">Personal Basic</h4>
                     <div class="text-2xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-4">Personal / Academia</p>
@@ -382,10 +394,10 @@
                         <li><i class="fas fa-check text-white"></i> Protocolos Estéticos</li>
                         <li><i class="fas fa-check text-white"></i> Dieta Inteligente</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Personal%20Basic*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 border border-white/10 rounded text-center text-xs font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Personal%20Basic*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 border border-gym/30 rounded text-center text-xs font-semibold hover:bg-gym/10 hover:text-gym transition">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-6 rounded-xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-6 rounded-xl border-t border-gym/20 relative overflow-hidden flex flex-col hover:border-gym/50">
                     <h4 class="text-base font-bold text-slate-300 mb-1">Performance Premium</h4>
                     <div class="text-2xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-4">Personal / Academia</p>
@@ -395,46 +407,46 @@
                         <li><i class="fas fa-check text-white"></i> Protocolos Estéticos</li>
                         <li><i class="fas fa-check text-white"></i> Dieta Inteligente</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Performance%20Premium*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 border border-white/10 rounded text-center text-xs font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Performance%20Premium*%20do%20*Technobolt%20Gym*." class="mt-auto block w-full py-2 border border-gym/30 rounded text-center text-xs font-semibold hover:bg-gym/10 hover:text-gym transition">Consultar Valor</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="governance" class="py-24 border-t border-white/5 relative">
+    <section id="governance" class="py-24 border-t border-primary/10 relative">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-center mb-16">
                 <div class="lg:w-1/2">
                     <div class="text-gov font-bold tracking-widest mb-2 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-gov rounded-full"></span> INTELIGÊNCIA CORPORATIVA
+                        <span class="w-2 h-2 bg-gov rounded-full shadow-[0_0_10px_#8b5cf6]"></span> INTELIGÊNCIA CORPORATIVA
                     </div>
                     <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-gov">Governance</span></h2>
                     <p class="text-slate-400 text-lg mb-8">
                         Centralize dados de múltiplos CNPJs em um "Centro de Comando". Receba conselhos estratégicos de uma IA treinada para atuar como um membro do conselho.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gov/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-chess-king text-gov"></i> <span><strong>Conselheiro IA:</strong> Mentoria 24h</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gov/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-chart-line text-gov"></i> <span><strong>Simulador:</strong> Preveja o impacto</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gov/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-money-bill-wave text-gov"></i> <span><strong>Projeção Financeira:</strong> Futuro</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gov/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-file-contract text-gov"></i> <span><strong>Análise de Doc:</strong> Leitura em massa</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-gov/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-envelope-open-text text-gov"></i> <span><strong>Intel. Emails:</strong> Resumo auto</span>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-gov/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-gov/30 transform group-hover:scale-[1.02] transition-transform duration-500">
-                        <i class="fas fa-brain text-6xl text-gov mb-6"></i>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-gov/30 transform group-hover:scale-[1.02] transition-transform duration-500 hover:shadow-[0_0_30px_rgba(139,92,246,0.2)]">
+                        <i class="fas fa-brain text-6xl text-gov mb-6 drop-shadow-[0_0_15px_rgba(139,92,246,0.6)]"></i>
                         <h3 class="text-2xl font-bold mb-2">Simulação de Cenários</h3>
                         <p class="text-sm text-slate-400">
                             Reduza o risco da decisão. Nosso simulador cruza dados de P&D versus Potencial de Mercado e projeta o fluxo de caixa futuro antes de você assinar o cheque.
@@ -444,7 +456,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-gov/20 relative overflow-hidden flex flex-col hover:border-gov/50">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Analyst</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-6 font-semibold">Startups / PMEs</p>
@@ -455,12 +467,12 @@
                         <li><i class="fas fa-check text-slate-400"></i> 1 Simulador de Decisões (Diário)</li>
                         <li><i class="fas fa-check text-slate-400"></i> 10 Conselhos executivos (Diário)</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Analyst*%20do%20*Technobolt%20Governance*." class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Analyst*%20do%20*Technobolt%20Governance*." class="mt-auto block w-full py-3 border border-gov/30 rounded-lg text-center text-sm font-semibold hover:bg-gov/10 hover:text-gov transition">Consultar Valor</a>
                 </div>
 
                 <div class="glass-card-price p-8 rounded-2xl border border-gov/30 bg-gov/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(139,92,246,0.3)]">
-                    <div class="absolute top-0 inset-x-0 h-1 bg-gov"></div>
-                    <div class="absolute top-4 right-4 text-xs font-bold text-gov bg-gov/10 px-2 py-1 rounded uppercase">Recomendado</div>
+                    <div class="absolute top-0 inset-x-0 h-1 bg-gov shadow-[0_0_10px_#8b5cf6]"></div>
+                    <div class="absolute top-4 right-4 text-xs font-bold text-white bg-gov px-3 py-1 rounded-full uppercase">Recomendado</div>
                     <h4 class="text-lg font-bold text-gov mb-2">Executive</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-400 mb-6 font-semibold">Empresas Consolidadas</p>
@@ -471,10 +483,10 @@
                         <li><i class="fas fa-check text-gov"></i> 10 Simuladores de Decisões p/ user</li>
                         <li><i class="fas fa-check text-gov"></i> 10 Conselhos executivos p/ user</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Executive*%20do%20*Technobolt%20Governance*." class="mt-auto block w-full py-3 bg-gov text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Executive*%20do%20*Technobolt%20Governance*." class="mt-auto block w-full py-3 bg-gov/20 border border-gov text-white rounded-lg text-center text-sm font-bold hover:bg-gov hover:brightness-110 transition">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-gov/20 relative overflow-hidden flex flex-col hover:border-gov/50">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Holding</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-6 font-semibold">Holdings / Grupos</p>
@@ -485,45 +497,45 @@
                         <li><i class="fas fa-check text-white"></i> Simulador de Decisões (Ilimitado)</li>
                         <li><i class="fas fa-check text-white"></i> Conselhos executivos (Ilimitado)</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Holding*%20do%20*Technobolt%20Governance*." class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Holding*%20do%20*Technobolt%20Governance*." class="mt-auto block w-full py-3 border border-gov/30 rounded-lg text-center text-sm font-semibold hover:bg-gov/10 hover:text-gov transition">Consultar Valor</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="legal" class="py-24 border-t border-white/5 bg-surface/30 relative">
+    <section id="legal" class="py-24 border-t border-primary/10 bg-surface relative">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row-reverse gap-16 items-center mb-16">
                 <div class="lg:w-1/2">
                     <div class="text-legal font-bold tracking-widest mb-2 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-legal rounded-full"></span> LAWTECH REVOLUTION
+                        <span class="w-2 h-2 bg-legal rounded-full shadow-[0_0_10px_#f59e0b]"></span> LAWTECH REVOLUTION
                     </div>
                     <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Technobolt <span class="text-legal">Legal</span></h2>
                     <p class="text-slate-400 text-lg mb-8">
                         Jurídico <em>Data-Driven</em>. Aumente sua <strong>eficiência</strong> com predição de riscos e auditoria automática de prazos e contratos.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-legal/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-shield-alt text-legal"></i> <span><strong>Predição IA:</strong> Risco & Resultado</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-legal/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-hourglass-half text-legal"></i> <span><strong>Auditor de Prazos:</strong> Zero perdas</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-legal/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-file-signature text-legal"></i> <span><strong>Revisor Contratos:</strong> Risco zero</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-legal/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-balance-scale text-legal"></i> <span><strong>Jurisprudência:</strong> Busca Semântica</span>
                         </div>
-                        <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
+                        <div class="feature-item p-3 rounded border border-legal/10 flex items-center gap-3 transition-all">
                             <i class="fas fa-chart-pie text-legal"></i> <span><strong>Legal Analytics:</strong> Dashboards</span>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-legal/20 blur-[100px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-legal/30 transform group-hover:scale-[1.02] transition-transform duration-500">
-                        <i class="fas fa-university text-6xl text-legal mb-6"></i>
+                    <div class="glass-panel p-8 rounded-2xl relative z-10 border-legal/30 transform group-hover:scale-[1.02] transition-transform duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                        <i class="fas fa-university text-6xl text-legal mb-6 drop-shadow-[0_0_15px_rgba(245,158,11,0.6)]"></i>
                         <h3 class="text-2xl font-bold mb-2">Segurança Processual</h3>
                         <p class="text-sm text-slate-400">
                             Com dashboards de "Legal Analytics" e monitoramento de jurisprudência em tempo real, transformamos o departamento jurídico de centro de custos em centro de estratégia e prevenção.
@@ -533,7 +545,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-legal/20 relative overflow-hidden flex flex-col hover:border-legal/50">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Associate</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-6 font-semibold">Advogados Autônomos</p>
@@ -543,12 +555,12 @@
                         <li><i class="fas fa-check text-slate-600"></i> Revisor de Contratos Simples</li>
                         <li><i class="fas fa-check text-slate-600"></i> 1 Usuário</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Associate*%20do%20*Technobolt%20Legal*." class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Associate*%20do%20*Technobolt%20Legal*." class="mt-auto block w-full py-3 border border-legal/30 rounded-lg text-center text-sm font-semibold hover:bg-legal/10 hover:text-legal transition">Consultar Valor</a>
                 </div>
 
                 <div class="glass-card-price p-8 rounded-2xl border border-legal/30 bg-legal/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(245,158,11,0.3)]">
-                    <div class="absolute top-0 inset-x-0 h-1 bg-legal"></div>
-                    <div class="absolute top-4 right-4 text-xs font-bold text-legal bg-legal/10 px-2 py-1 rounded uppercase">Seguro</div>
+                    <div class="absolute top-0 inset-x-0 h-1 bg-legal shadow-[0_0_10px_#f59e0b]"></div>
+                    <div class="absolute top-4 right-4 text-xs font-bold text-white bg-legal px-3 py-1 rounded-full uppercase">Seguro</div>
                     <h4 class="text-lg font-bold text-legal mb-2">Partner</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-400 mb-6 font-semibold">Escritórios Médios</p>
@@ -559,10 +571,10 @@
                         <li><i class="fas fa-check text-legal"></i> Legal Analytics (Dashboards)</li>
                         <li><i class="fas fa-check text-legal"></i> Até 5 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Partner*%20do%20*Technobolt%20Legal*." class="mt-auto block w-full py-3 bg-legal text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Partner*%20do%20*Technobolt%20Legal*." class="mt-auto block w-full py-3 bg-legal/20 border border-legal text-white rounded-lg text-center text-sm font-bold hover:bg-legal hover:brightness-110 transition">Consultar Valor</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-legal/20 relative overflow-hidden flex flex-col hover:border-legal/50">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Full Bench</h4>
                     <div class="text-3xl font-display font-bold mb-2">Sob Consulta</div>
                     <p class="text-xs text-slate-500 mb-6 font-semibold">Grandes Bancas / Interno</p>
@@ -573,20 +585,20 @@
                         <li><i class="fas fa-check text-white"></i> API para ERPs Jurídicos</li>
                         <li><i class="fas fa-check text-white"></i> Até 10 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Full%20Bench*%20do%20*Technobolt%20Legal*." class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Consultar Valor</a>
+                    <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20o%20valor%20do%20plano%20*Full%20Bench*%20do%20*Technobolt%20Legal*." class="mt-auto block w-full py-3 border border-legal/30 rounded-lg text-center text-sm font-semibold hover:bg-legal/10 hover:text-legal transition">Consultar Valor</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/10 text-center relative overflow-hidden bg-bg">
+    <footer class="py-12 border-t border-primary/20 text-center relative overflow-hidden bg-bg">
         <div class="container mx-auto px-6 relative z-10">
-            <img src="Technobolt_logo_black.png" alt="Technobolt Solutions" class="h-12 w-auto object-contain mx-auto mb-6">
+            <img src="logo.png" alt="Technobolt Solutions" class="h-12 w-auto object-contain mx-auto mb-6">
             <h2 class="text-3xl font-bold mb-6">Comece sua Transformação Digital</h2>
             <p class="text-slate-400 mb-8 max-w-xl mx-auto">
                 A Technobolt Solutions entrega a infraestrutura que separa os líderes do mercado dos seguidores.
             </p>
-            <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20com%20a%20diretoria%20da%20Technobolt%20Solutions." class="bg-white text-bg px-10 py-4 rounded-full font-bold hover:bg-slate-200 transition-transform hover:scale-105 inline-block shadow-lg">
+            <a href="https://wa.me/5561983759512?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20com%20a%20diretoria%20da%20Technobolt%20Solutions." class="bg-primary text-white px-10 py-4 rounded-full font-bold hover:brightness-110 transition-transform hover:scale-105 inline-block shadow-[0_0_20px_rgba(81,112,255,0.5)]">
                 Agendar Reunião com Diretoria
             </a>
             <div class="mt-12 text-slate-600 text-sm">
