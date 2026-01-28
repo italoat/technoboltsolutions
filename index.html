@@ -53,6 +53,8 @@
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .glass-card-price:hover {
@@ -80,13 +82,16 @@
 
         .check-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 0.75rem;
             color: #cbd5e1;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
         .check-list li i {
-            margin-right: 0.75rem;
+            margin-right: 0.5rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -255,45 +260,47 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Start</h4>
                     <div class="text-4xl font-display font-bold mb-2">R$ 297<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Ideal para pequenas autopeças iniciarem a digitalização.</p>
+                    <p class="text-xs text-slate-500 mb-6 font-semibold">Pequenas Autopeças</p>
                     <ul class="check-list mb-8 flex-grow">
                         <li><i class="fas fa-check text-slate-600"></i> PDV & Orçamento Rápido</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Cadastro Manual</li>
-                        <li><i class="fas fa-check text-slate-600"></i> 2 Usuários</li>
+                        <li><i class="fas fa-check text-slate-600"></i> Cadastro de Produtos (Manual)</li>
                         <li><i class="fas fa-check text-slate-600"></i> Controle de Estoque Básico</li>
+                        <li><i class="fas fa-check text-slate-600"></i> 2 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Tenho%20interesse%20no%20Plano%20Start%20do%20Auto%20Pe%C3%A7as" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Começar Agora</a>
+                    <a href="https://wa.me/5561983759512?text=Tenho%20interesse%20no%20Plano%20Start%20do%20Auto%20Pe%C3%A7as" class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Começar Agora</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border border-primary/30 bg-primary/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(6,182,212,0.3)]">
+                <div class="glass-card-price p-8 rounded-2xl border border-primary/30 bg-primary/5 relative transform md:-translate-y-4 z-10 shadow-[0_0_30px_-10px_rgba(6,182,212,0.3)]">
                     <div class="absolute top-0 inset-x-0 h-1 bg-primary"></div>
-                    <div class="absolute top-4 right-4 text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded uppercase">Mais Vendido</div>
+                    <div class="absolute top-4 right-4 text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded uppercase">Recomendado</div>
                     <h4 class="text-lg font-bold text-primary mb-2">Turbo AI</h4>
                     <div class="text-4xl font-display font-bold mb-2">R$ 597<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-400 mb-8 h-8">Automação total com Inteligência Artificial.</p>
+                    <p class="text-xs text-slate-400 mb-6 font-semibold">Lojas em Crescimento</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-primary"></i> <strong>Vision IA & Revisor Fiscal</strong></li>
+                        <li><i class="fas fa-check text-primary"></i> <strong>Vision IA (Identificação Visual)</strong></li>
+                        <li><i class="fas fa-check text-primary"></i> Revisor Fiscal Automático</li>
                         <li><i class="fas fa-check text-primary"></i> Carga em Massa (CSV)</li>
-                        <li><i class="fas fa-check text-primary"></i> CRM WhatsApp Automático</li>
+                        <li><i class="fas fa-check text-primary"></i> CRM Automático (WhatsApp)</li>
                         <li><i class="fas fa-check text-primary"></i> 5 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20contratar%20o%20Plano%20Turbo%20AI%20do%20Auto%20Pe%C3%A7as" class="block w-full py-3 bg-primary text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Assinar Turbo AI</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20contratar%20o%20Plano%20Turbo%20AI%20do%20Auto%20Pe%C3%A7as" class="mt-auto block w-full py-3 bg-primary text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Assinar Turbo AI</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Rede & Hub</h4>
                     <div class="text-4xl font-display font-bold mb-2">R$ 1.197<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Para redes que precisam de logística integrada.</p>
+                    <p class="text-xs text-slate-500 mb-6 font-semibold">Redes e Distribuidoras</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-white"></i> Hub de Transferência (Filiais)</li>
-                        <li><i class="fas fa-check text-white"></i> Busca Cross-Loja</li>
-                        <li><i class="fas fa-check text-white"></i> Compras Preditivas</li>
-                        <li><i class="fas fa-check text-white"></i> 20 Usuários</li>
+                        <li><i class="fas fa-check text-white"></i> Hub de Transferência entre Lojas</li>
+                        <li><i class="fas fa-check text-white"></i> Busca de Peças Cross (Rede)</li>
+                        <li><i class="fas fa-check text-white"></i> Auditoria de Estoque Avançada</li>
+                        <li><i class="fas fa-check text-white"></i> Compras Inteligentes (Preditivo)</li>
+                        <li><i class="fas fa-check text-white"></i> Até 20 usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Tenho%20interesse%20no%20Plano%20Rede%20do%20Auto%20Pe%C3%A7as" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Falar com Consultor</a>
+                    <a href="https://wa.me/5561983759512?text=Tenho%20interesse%20no%20Plano%20Rede%20do%20Auto%20Pe%C3%A7as" class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Falar com Consultor</a>
                 </div>
             </div>
         </div>
@@ -340,47 +347,60 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
-                    <h4 class="text-lg font-medium text-slate-300 mb-2">Personal</h4>
-                    <div class="text-4xl font-display font-bold mb-2">R$ 149<span class="text-sm text-slate-500 font-sans">,90/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Para Personal Trainers (Até 20 alunos).</p>
-                    <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-slate-600"></i> Montagem de Treino</li>
-                        <li><i class="fas fa-check text-slate-600"></i> App do Aluno</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Avaliação Física Básica</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Chat Integrado</li>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="glass-card-price p-6 rounded-xl border-t border-white/10 relative overflow-hidden">
+                    <h4 class="text-base font-bold text-slate-300 mb-1">Individual Basic</h4>
+                    <div class="text-2xl font-display font-bold mb-2">R$ 149,90<span class="text-xs text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-500 mb-4">Licença Aluno (1 análise/mês)</p>
+                    <ul class="check-list mb-6 flex-grow">
+                        <li><i class="fas fa-check text-slate-600"></i> 1 Análise Corporal via IA</li>
+                        <li><i class="fas fa-check text-slate-600"></i> Protocolos Estéticos</li>
+                        <li><i class="fas fa-check text-slate-600"></i> Dieta & Suplementação</li>
+                        <li><i class="fas fa-check text-slate-600"></i> Comunidade</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Personal%20do%20Technobolt%20Gym" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Assinar Personal</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Individual%20Basic%20do%20Technobolt%20Gym" class="mt-auto block w-full py-2 border border-white/10 rounded text-center text-xs font-semibold hover:bg-white/5 transition">Assinar Basic</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border border-gym/30 bg-gym/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(16,185,129,0.3)]">
-                    <div class="absolute top-0 inset-x-0 h-1 bg-gym"></div>
-                    <div class="absolute top-4 right-4 text-xs font-bold text-gym bg-gym/10 px-2 py-1 rounded uppercase">Alta Demanda</div>
-                    <h4 class="text-lg font-bold text-gym mb-2">Performance</h4>
-                    <div class="text-4xl font-display font-bold mb-2">R$ 497<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-400 mb-8 h-8">Academias (Até 200 alunos).</p>
-                    <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-gym"></i> <strong>Análise Corporal via IA</strong></li>
-                        <li><i class="fas fa-check text-gym"></i> Protocolos Estéticos Segmentados</li>
+                <div class="glass-card-price p-6 rounded-xl border border-gym/30 bg-gym/5 relative">
+                    <h4 class="text-base font-bold text-gym mb-1">Individual Premium</h4>
+                    <div class="text-2xl font-display font-bold mb-2">R$ 149,90<span class="text-xs text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-500 mb-4">Licença Aluno (4 análises/mês)</p>
+                    <ul class="check-list mb-6 flex-grow">
+                        <li><i class="fas fa-check text-gym"></i> <strong>4 Análises Corporais via IA</strong></li>
+                        <li><i class="fas fa-check text-gym"></i> Protocolos Estéticos</li>
                         <li><i class="fas fa-check text-gym"></i> Dieta & Suplementação</li>
-                        <li><i class="fas fa-check text-gym"></i> Comunidade Elite</li>
+                        <li><i class="fas fa-check text-gym"></i> Comunidade</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20contratar%20o%20Plano%20Performance%20do%20Technobolt%20Gym" class="block w-full py-3 bg-gym text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Assinar Performance</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Individual%20Premium%20do%20Technobolt%20Gym" class="mt-auto block w-full py-2 bg-gym text-bg rounded text-center text-xs font-bold hover:brightness-110 transition">Assinar Premium</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
-                    <h4 class="text-lg font-medium text-slate-300 mb-2">Elite Center</h4>
-                    <div class="text-4xl font-display font-bold mb-2">Consulte</div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Grandes Redes e Franquias.</p>
-                    <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-white"></i> App White Label (Sua Marca)</li>
-                        <li><i class="fas fa-check text-white"></i> Gestão Financeira</li>
-                        <li><i class="fas fa-check text-white"></i> Alunos Ilimitados</li>
-                        <li><i class="fas fa-check text-white"></i> Integração Catracas</li>
+                <div class="glass-card-price p-6 rounded-xl border-t border-white/10 relative overflow-hidden">
+                    <h4 class="text-base font-bold text-slate-300 mb-1">Personal Basic</h4>
+                    <div class="text-2xl font-display font-bold mb-2">R$ 500<span class="text-xs text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-500 mb-4">Personal / Academia</p>
+                    <ul class="check-list mb-6 flex-grow">
+                        <li><i class="fas fa-check text-white"></i> <strong>Até 20 Alunos ativos</strong></li>
+                        <li><i class="fas fa-check text-white"></i> Análise Corporal via IA</li>
+                        <li><i class="fas fa-check text-white"></i> Protocolos Estéticos</li>
+                        <li><i class="fas fa-check text-white"></i> Dieta Inteligente</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Interesse%20no%20plano%20Elite%20do%20Technobolt%20Gym" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Falar com Consultor</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Personal%20Basic%20do%20Technobolt%20Gym" class="mt-auto block w-full py-2 border border-white/10 rounded text-center text-xs font-semibold hover:bg-white/5 transition">Assinar Personal</a>
                 </div>
+
+                <div class="glass-card-price p-6 rounded-xl border-t border-white/10 relative overflow-hidden">
+                    <h4 class="text-base font-bold text-slate-300 mb-1">Performance Premium</h4>
+                    <div class="text-2xl font-display font-bold mb-2">R$ 1.500<span class="text-xs text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-500 mb-4">Personal / Academia</p>
+                    <ul class="check-list mb-6 flex-grow">
+                        <li><i class="fas fa-check text-white"></i> <strong>Até 100 Alunos ativos</strong></li>
+                        <li><i class="fas fa-check text-white"></i> Análise Corporal via IA</li>
+                        <li><i class="fas fa-check text-white"></i> Protocolos Estéticos</li>
+                        <li><i class="fas fa-check text-white"></i> Dieta Inteligente</li>
+                    </ul>
+                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Performance%20Premium%20do%20Technobolt%20Gym" class="mt-auto block w-full py-2 border border-white/10 rounded text-center text-xs font-semibold hover:bg-white/5 transition">Assinar Performance</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -404,7 +424,7 @@
                             <i class="fas fa-chart-line text-gov"></i> <span><strong>Simulador:</strong> Preveja o impacto</span>
                         </div>
                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
-                            <i class="fas fa-money-bill-wave text-gov"></i> <span><strong>Projeção de MRR:</strong> Futuro financeiro</span>
+                            <i class="fas fa-money-bill-wave text-gov"></i> <span><strong>Projeção Financeira:</strong> Futuro</span>
                         </div>
                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
                             <i class="fas fa-file-contract text-gov"></i> <span><strong>Análise de Doc:</strong> Leitura em massa</span>
@@ -427,45 +447,48 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
-                    <h4 class="text-lg font-medium text-slate-300 mb-2">Founder</h4>
-                    <div class="text-4xl font-display font-bold mb-2">R$ 597<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Startups & CEO Solo.</p>
+                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden">
+                    <h4 class="text-lg font-medium text-slate-300 mb-2">Analyst</h4>
+                    <div class="text-4xl font-display font-bold mb-2">R$ 997<span class="text-sm text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-500 mb-6 font-semibold">Startups / PMEs</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-slate-400"></i> <strong>Acesso a TODOS os Módulos</strong></li>
-                        <li><i class="fas fa-check text-slate-400"></i> 1 Usuário (Founder)</li>
-                        <li><i class="fas fa-check text-slate-400"></i> 50 Consultas ao Conselheiro IA</li>
-                        <li><i class="fas fa-check text-slate-400"></i> 5 Simulações de Cenário</li>
+                        <li><i class="fas fa-check text-slate-400"></i> 1 Usuário Executivo</li>
+                        <li><i class="fas fa-check text-slate-400"></i> Centro de Comando de Dados (1 Fonte)</li>
+                        <li><i class="fas fa-check text-slate-400"></i> 10 análises de doc (Semanal)</li>
+                        <li><i class="fas fa-check text-slate-400"></i> 1 Simulador de Decisões (Diário)</li>
+                        <li><i class="fas fa-check text-slate-400"></i> 10 Conselhos executivos (Diário)</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20acesso%20Founder%20ao%20Governance" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Acesso Founder</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20acesso%20Analyst%20ao%20Governance" class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Acesso Analyst</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border border-gov/30 bg-gov/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(139,92,246,0.3)]">
+                <div class="glass-card-price p-8 rounded-2xl border border-gov/30 bg-gov/5 relative transform md:-translate-y-4 z-10 shadow-[0_0_30px_-10px_rgba(139,92,246,0.3)]">
                     <div class="absolute top-0 inset-x-0 h-1 bg-gov"></div>
                     <div class="absolute top-4 right-4 text-xs font-bold text-gov bg-gov/10 px-2 py-1 rounded uppercase">Recomendado</div>
-                    <h4 class="text-lg font-bold text-gov mb-2">Corporate</h4>
-                    <div class="text-4xl font-display font-bold mb-2">R$ 1.997<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-400 mb-8 h-8">Empresas Consolidadas.</p>
+                    <h4 class="text-lg font-bold text-gov mb-2">Executive</h4>
+                    <div class="text-4xl font-display font-bold mb-2">R$ 2.497<span class="text-sm text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-400 mb-6 font-semibold">Empresas Consolidadas</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-gov"></i> <strong>Acesso a TODOS os Módulos</strong></li>
-                        <li><i class="fas fa-check text-gov"></i> Até 5 Usuários (Diretoria)</li>
-                        <li><i class="fas fa-check text-gov"></i> 500 Consultas ao Conselheiro IA</li>
-                        <li><i class="fas fa-check text-gov"></i> 30 Simulações de Cenário</li>
+                        <li><i class="fas fa-check text-gov"></i> 5 Usuário Executivo</li>
+                        <li><i class="fas fa-check text-gov"></i> Centro de Comando (5 Fontes)</li>
+                        <li><i class="fas fa-check text-gov"></i> 50 análises de doc p/ user (Semanal)</li>
+                        <li><i class="fas fa-check text-gov"></i> 10 Simuladores de Decisões p/ user</li>
+                        <li><i class="fas fa-check text-gov"></i> 10 Conselhos executivos p/ user</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20acesso%20Corporate%20ao%20Governance" class="block w-full py-3 bg-gov text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Acesso Corporate</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20acesso%20Executive%20ao%20Governance" class="mt-auto block w-full py-3 bg-gov text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Acesso Executive</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
-                    <h4 class="text-lg font-medium text-slate-300 mb-2">Board</h4>
-                    <div class="text-4xl font-display font-bold mb-2">R$ 4.997<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Holdings & Grupos.</p>
+                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden">
+                    <h4 class="text-lg font-medium text-slate-300 mb-2">Holding</h4>
+                    <div class="text-4xl font-display font-bold mb-2">R$ 5.997<span class="text-sm text-slate-500 font-sans">/mês</span></div>
+                    <p class="text-xs text-slate-500 mb-6 font-semibold">Holdings / Grupos</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-white"></i> <strong>Acesso a TODOS os Módulos</strong></li>
-                        <li><i class="fas fa-check text-white"></i> Usuários Ilimitados</li>
-                        <li><i class="fas fa-check text-white"></i> <strong>IA & Simulações Ilimitadas</strong></li>
-                        <li><i class="fas fa-check text-white"></i> Dados em Tempo Real (Live)</li>
+                        <li><i class="fas fa-check text-white"></i> 10 Usuário Executivo</li>
+                        <li><i class="fas fa-check text-white"></i> Centro de Comando (10 Fontes)</li>
+                        <li><i class="fas fa-check text-white"></i> Análise de Documentos (Ilimitado)</li>
+                        <li><i class="fas fa-check text-white"></i> Simulador de Decisões (Ilimitado)</li>
+                        <li><i class="fas fa-check text-white"></i> Conselhos executivos (Ilimitado)</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Interesse%20no%20plano%20Board%20Holding%20do%20Governance" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Acesso Holding</a>
+                    <a href="https://wa.me/5561983759512?text=Interesse%20no%20plano%20Holding%20do%20Governance" class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Acesso Holding</a>
                 </div>
             </div>
         </div>
@@ -484,7 +507,7 @@
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
-                            <i class="fas fa-shield-alt text-legal"></i> <span><strong>Análise de Risco:</strong> Predição IA</span>
+                            <i class="fas fa-shield-alt text-legal"></i> <span><strong>Predição IA:</strong> Win Rate</span>
                         </div>
                         <div class="feature-item p-3 rounded border border-white/5 flex items-center gap-3 transition-all">
                             <i class="fas fa-hourglass-half text-legal"></i> <span><strong>Auditor de Prazos:</strong> Zero perdas</span>
@@ -513,44 +536,47 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Associate</h4>
                     <div class="text-4xl font-display font-bold mb-2">R$ 397<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Advogados Autônomos.</p>
+                    <p class="text-xs text-slate-500 mb-6 font-semibold">Advogados Autônomos</p>
                     <ul class="check-list mb-8 flex-grow">
                         <li><i class="fas fa-check text-slate-600"></i> Auditor de Prazos</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Gestão até 100 Processos</li>
-                        <li><i class="fas fa-check text-slate-600"></i> Revisor Contratos Simples</li>
+                        <li><i class="fas fa-check text-slate-600"></i> Gestão de Processos (até 100)</li>
+                        <li><i class="fas fa-check text-slate-600"></i> Revisor de Contratos Simples</li>
+                        <li><i class="fas fa-check text-slate-600"></i> 1 Usuário</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Associate%20do%20Technobolt%20Legal" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Assinar Associate</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20o%20Plano%20Associate%20do%20Technobolt%20Legal" class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Assinar Associate</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border border-legal/30 bg-legal/5 relative transform md:-translate-y-4 z-10 flex flex-col shadow-[0_0_30px_-10px_rgba(245,158,11,0.3)]">
+                <div class="glass-card-price p-8 rounded-2xl border border-legal/30 bg-legal/5 relative transform md:-translate-y-4 z-10 shadow-[0_0_30px_-10px_rgba(245,158,11,0.3)]">
                     <div class="absolute top-0 inset-x-0 h-1 bg-legal"></div>
                     <div class="absolute top-4 right-4 text-xs font-bold text-legal bg-legal/10 px-2 py-1 rounded uppercase">Seguro</div>
                     <h4 class="text-lg font-bold text-legal mb-2">Partner</h4>
                     <div class="text-4xl font-display font-bold mb-2">R$ 897<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-400 mb-8 h-8">Escritórios Médios.</p>
+                    <p class="text-xs text-slate-400 mb-6 font-semibold">Escritórios Médios</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-legal"></i> <strong>Analisador de Petições IA</strong></li>
-                        <li><i class="fas fa-check text-legal"></i> Jurisprudência Semântica</li>
-                        <li><i class="fas fa-check text-legal"></i> Revisor de Risco Contratual</li>
+                        <li><i class="fas fa-check text-legal"></i> Analisador de Petições com IA</li>
+                        <li><i class="fas fa-check text-legal"></i> Busca de Jurisprudência Semântica</li>
+                        <li><i class="fas fa-check text-legal"></i> Revisor de Contratos Avançado</li>
+                        <li><i class="fas fa-check text-legal"></i> Legal Analytics (Dashboards)</li>
                         <li><i class="fas fa-check text-legal"></i> Até 5 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Quero%20contratar%20o%20Plano%20Partner%20do%20Technobolt%20Legal" class="block w-full py-3 bg-legal text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Assinar Partner</a>
+                    <a href="https://wa.me/5561983759512?text=Quero%20contratar%20o%20Plano%20Partner%20do%20Technobolt%20Legal" class="mt-auto block w-full py-3 bg-legal text-bg font-bold rounded-lg text-center text-sm hover:brightness-110 transition">Assinar Partner</a>
                 </div>
 
-                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden flex flex-col">
+                <div class="glass-card-price p-8 rounded-2xl border-t border-white/10 relative overflow-hidden">
                     <h4 class="text-lg font-medium text-slate-300 mb-2">Full Bench</h4>
                     <div class="text-4xl font-display font-bold mb-2">R$ 1.997<span class="text-sm text-slate-500 font-sans">/mês</span></div>
-                    <p class="text-xs text-slate-500 mb-8 h-8">Grandes Bancas e Jurídico Interno.</p>
+                    <p class="text-xs text-slate-500 mb-6 font-semibold">Grandes Bancas / Interno</p>
                     <ul class="check-list mb-8 flex-grow">
-                        <li><i class="fas fa-check text-white"></i> Automação em Massa</li>
-                        <li><i class="fas fa-check text-white"></i> <strong>Análise de Risco Avançada</strong></li>
-                        <li><i class="fas fa-check text-white"></i> Integração Tribunais (Push)</li>
-                        <li><i class="fas fa-check text-white"></i> Usuários Ilimitados</li>
+                        <li><i class="fas fa-check text-white"></i> Automação de Peças em Massa</li>
+                        <li><i class="fas fa-check text-white"></i> <strong>Predição de Resultados (Win Rate AI)</strong></li>
+                        <li><i class="fas fa-check text-white"></i> Integração com Tribunais (Push)</li>
+                        <li><i class="fas fa-check text-white"></i> API para ERPs Jurídicos</li>
+                        <li><i class="fas fa-check text-white"></i> Até 10 Usuários</li>
                     </ul>
-                    <a href="https://wa.me/5561983759512?text=Interesse%20no%20plano%20Full%20Bench%20do%20Technobolt%20Legal" class="block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Falar com Consultor</a>
+                    <a href="https://wa.me/5561983759512?text=Interesse%20no%20plano%20Full%20Bench%20do%20Technobolt%20Legal" class="mt-auto block w-full py-3 border border-white/10 rounded-lg text-center text-sm font-semibold hover:bg-white/5 transition">Falar com Consultor</a>
                 </div>
             </div>
         </div>
@@ -568,7 +594,7 @@
             </a>
             <div class="mt-12 text-slate-600 text-sm">
                 &copy; 2026 Technobolt Solutions. Todos os direitos reservados. <br>
-                Brasília - DF • Infraestrutura de Alta Performance
+                Infraestrutura de Alta Performance
             </div>
         </div>
     </footer>
